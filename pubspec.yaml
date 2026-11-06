@@ -1,0 +1,5 @@
+name: dart_order_exam
+description: Dart order management practical exam project.
+version: 1.0.0
+environment:
+  sdk: ">=3.0.0 <4.0.0"

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Dart order management practical exam" />
+    <title>My Order | Dart Practical</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/main.dart.js"></script>
+  </head>
+  <body>
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">DART ORDER MANAGER</p>
+          <h1>My <span>Order</span></h1>
+          <p class="subtitle">Add, browse, and find customer orders in one clean workspace.</p>
+        </div>
+        <div class="hero-mark" aria-hidden="true">MO</div>
+      </header>
+
+      <section class="stats" aria-label="Order summary">
+        <article class="stat-card">
+          <span class="stat-label">Results</span>
+          <strong id="result-count">0</strong>
+          <span class="stat-note">matching orders</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Items</span>
+          <strong id="total-quantity">0</strong>
+          <span class="stat-note">total quantity</span>
+        </article>
+        <article class="stat-card accent-card">
+          <span class="stat-label">List value</span>
+          <strong id="total-value">0</strong>
+          <span class="stat-note">before currency conversion</span>
+        </article>
+      </section>
+
+      <section class="panel form-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">NEW ENTRY</p>
+            <h2>Add an order</h2>
+          </div>
+          <p>All fields are required</p>
+        </div>
+
+        <form id="order-form" class="order-form">
+          <label>
+            <span>Item code</span>
+            <input id="item" name="item" placeholder="e.g. A1002" autocomplete="off" required />
+          </label>
+          <label class="wide-field">
+            <span>Item name</span>
+            <input id="item-name" name="itemName" placeholder="e.g. MacBook Air" autocomplete="off" required />
+          </label>
+          <label>
+            <span>Price</span>
+            <input id="price" name="price" type="number" min="0" step="0.01" placeholder="0.00" required />
+          </label>
+          <label>
+            <span>Quantity</span>
+            <input id="quantity" name="quantity" type="number" min="1" step="1" value="1" required />
+          </label>
+          <label>
+            <span>Currency</span>
+            <select id="currency" name="currency">
+              <option value="USD">USD</option>
+              <option value="VND">VND</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+            </select>
+          </label>
+          <div class="form-actions">
+            <button id="reset-button" class="button secondary" type="button">Clear</button>
+            <button id="submit-button" class="button primary" type="submit">Add order</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="table-toolbar">
+          <div>
+            <p class="section-kicker">ORDER LIST</p>
+            <h2>All orders</h2>
+          </div>
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="search" type="search" placeholder="Search by item name..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Item name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Currency</th>
+              </tr>
+            </thead>
+            <tbody id="orders-body"></tbody>
+          </table>
+          <div id="empty-state" class="empty-state hidden">
+            <div class="empty-icon">⌕</div>
+            <strong>No orders found</strong>
+            <span>Try another item name or add a new order.</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>Built with Dart · Practical Exam SET01</footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
